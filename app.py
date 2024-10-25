@@ -153,22 +153,13 @@ def deepfakespredict(input_video):
 
 
 title="DEEPFAKE DETECTOR"
-description=" Done by Abhiram.S,Harith Hussain,Goutham Krishna M \
+description=" Welcome to the Deepfake Detector, an innovative tool designed to identify manipulated videos using advanced machine learning algorithms. Simply upload a video, and our system will analyze its content to determine whether it is real or fake.Project Done by Abhiram.S,Harith Hussain,Goutham Krishna M \
             "
-
-examples = [
-                ['Video1-fake-1-ff.mp4'],
-                ['Video6-real-1-ff.mp4'],
-                ['Video3-fake-3-ff.mp4'],
-                ['Video8-real-3-ff.mp4'],
-                ['real-1.mp4'],
-                ['fake-1.mp4'],
-           ]
 
 gr.Interface(deepfakespredict,
              inputs = ["video"],
              outputs=["text","text", gr.components.Video(label="Detected face sequence")],
              title=title,
              description=description,
-             #examples=examples
+             
             ).launch()
