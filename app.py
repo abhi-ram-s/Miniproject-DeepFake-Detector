@@ -3,14 +3,14 @@ import cv2
 import numpy as np
 import tensorflow as tf
 import tensorflow_addons
-
+import random
 from facenet_pytorch import MTCNN
 from PIL import Image
 import moviepy.editor as mp
 import os
 import zipfile
 
-local_zip = "FINAL-EFFICIENTNETV2-B0.zip"
+local_zip = "/content/drive/MyDrive/Miniproject-DeepFake-Detector/FINAL-EFFICIENTNETV2-B0.zip"
 zip_ref = zipfile.ZipFile(local_zip, 'r')
 zip_ref.extractall('FINAL-EFFICIENTNETV2-B0')
 zip_ref.close()
@@ -130,7 +130,6 @@ def deepfakespredict(input_video):
           real+=1
 
     fake_ratio = fake/total
-
     text =""
     text2 = "Deepfakes Confidence: " + str(fake_ratio*100) + "%"
 
@@ -140,11 +139,11 @@ def deepfakespredict(input_video):
         text = "The video is REAL."
 
     face_frames = []
-    
+
     for face in faces:
         face_frame = Image.fromarray(face.astype('uint8'), 'RGB')
         face_frames.append(face_frame)
-        
+
     face_frames[0].save('results.gif', save_all=True, append_images=face_frames[1:], duration = 250, loop = 100 )
     clip = mp.VideoFileClip("results.gif")
     clip.write_videofile("video.mp4")
@@ -153,25 +152,14 @@ def deepfakespredict(input_video):
 
 
 
-title="EfficientNetV2 Deepfakes Video Detector"
-description="This is a  implementation of EfficientNetV2 Deepfakes Video Detector by using frame-by-frame detection. \
-            To use it, simply upload your video, or click one of the examples to load them.\
-            This is a Miniproject Done by Abhiram.S,Harith Hussain and Goutham Krishna M studying under Kerala Technical University  .\
+title="DEEPFAKE DETECTOR"
+description=" Welcome to the Deepfake Detector, an innovative tool designed to identify manipulated videos using advanced machine learning algorithms. Simply upload a video, and our system will analyze its content to determine whether it is real or fake.Project Done by Abhiram.S,Harith Hussain,Goutham Krishna M \
             "
-            
-examples = [              
-                ['Video1-fake-1-ff.mp4'],
-                ['Video6-real-1-ff.mp4'],
-                ['Video3-fake-3-ff.mp4'],
-                ['Video8-real-3-ff.mp4'],
-                ['real-1.mp4'],
-                ['fake-1.mp4'],
-           ]
-           
+
 gr.Interface(deepfakespredict,
-                     inputs = ["video"],
-                     outputs=["text","text", gr.outputs.Video(label="Detected face sequence")],
-                     title=title,
-                     description=description,
-                     examples=examples
-                     ).launch()
+             inputs = ["video"],
+             outputs=["text","text", gr.components.Video(label="Detected face sequence")],
+             title=title,
+             description=description,
+             
+            ).launch()
