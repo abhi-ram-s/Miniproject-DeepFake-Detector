@@ -12,10 +12,22 @@ This project implements a deepfake detection system using the **EfficientNetV2-B
 
 ## Deepfake Detection Using EfficientNetV2
 
-In this project, **EfficientNetV2-B0** is trained to detect deepfakes by identifying artifacts and inconsistencies in facial regions, texture, and visual details. 
+In this project, **EfficientNetV2-B0** is trained to detect deepfakes by identifying artifacts and inconsistencies in facial regions, texture, and visual details.
 
 - **Input**: Image frames extracted from videos are used as input to the model.
 - **Output**: The model produces a binary classification output (real or fake) or a probability score indicating the likelihood of the content being a deepfake.
+
+## Screenshots
+
+Below are sample screenshots from the project execution:
+
+### **1. Deepfake Detection Output**
+![Screenshot 1](Screenshot%20(1).png)
+
+### **2. Model Inference Process**
+![Screenshot 2](Screenshot%20(2).png)
+
+These images illustrate how the system processes video frames and classifies them as real or fake.
 
 ## File Breakdown
 
@@ -61,29 +73,29 @@ This project utilizes the following datasets:
 - **Celeb-DF (V2)**: [Paper](https://openaccess.thecvf.com/content_CVPR_2020/html/Li_Celeb-DF_A_Large-Scale_Challenging_Dataset_for_DeepFake_Forensics_CVPR_2020_paper.html)  
   Citation:
   ```bibtex
-  @inproceedings{Celeb_DF_cvpr20, 
-  author = {Yuezun Li and Xin Yang and Pu Sun and Honggang Qi and Siwei Lyu}, 
-  title = {Celeb-DF: A Large-scale Challenging Dataset for DeepFake Forensics}, 
-  booktitle= {IEEE Conference on Computer Vision and Patten Recognition (CVPR)}, 
+  @inproceedings{Celeb_DF_cvpr20,
+  author = {Yuezun Li and Xin Yang and Pu Sun and Honggang Qi and Siwei Lyu},
+  title = {Celeb-DF: A Large-scale Challenging Dataset for DeepFake Forensics},
+  booktitle= {IEEE Conference on Computer Vision and Patten Recognition (CVPR)},
   year = {2020}}
   ```
 
 - **FaceForensics++**: [Paper](https://openaccess.thecvf.com/content_ICCV_2019/papers/Rossler_FaceForensics_Learning_to_Detect_Manipulated_Facial_Images_ICCV_2019_paper.html)  
   Citation:
   ```bibtex
-  @inproceedings{roessler2019faceforensicspp, 
-  author = {Andreas R\"ossler et al.}, 
-  title = {FaceForensics++: Learning to Detect Manipulated Facial Images}, 
-  booktitle= {International Conference on Computer Vision (ICCV)}, 
+  @inproceedings{roessler2019faceforensicspp,
+  author = {Andreas R"ossler et al.},
+  title = {FaceForensics++: Learning to Detect Manipulated Facial Images},
+  booktitle= {International Conference on Computer Vision (ICCV)},
   year = {2019} }
   ```
 
 - **DeepFakes Detection Dataset (Google & JigSaw)**: [Dataset](https://ai.googleblog.com/2019/09/contributing-data-to-deepfake-detection.html)  
   Citation:
   ```bibtex
-  @MISC{DDD_GoogleJigSaw2019, 
-  author = {Dufour et al.}, 
-  title = {DeepFakes Detection Dataset by Google & JigSaw}, 
+  @MISC{DDD_GoogleJigSaw2019,
+  author = {Dufour et al.},
+  title = {DeepFakes Detection Dataset by Google & JigSaw},
   date = {2019-09}}
   ```
 
